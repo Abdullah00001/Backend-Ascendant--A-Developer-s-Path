@@ -1,0 +1,17 @@
+{
+  "name": "project_1",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "author": "Abdullah Bin Omar Chowdhury",
+  "license": "ISC",
+  "description": "TypeScript Basic Types Learning Project"
+}
