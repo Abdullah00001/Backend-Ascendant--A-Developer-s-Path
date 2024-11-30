@@ -1,6 +1,6 @@
-import { Types } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
-interface ProductInterface {
+interface ProductInterface extends Document {
   productName: string;
   productModel: string;
   productPrice: number;
