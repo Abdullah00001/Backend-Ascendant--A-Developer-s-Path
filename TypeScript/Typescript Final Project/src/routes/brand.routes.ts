@@ -9,8 +9,11 @@ import brandInputValidationMiddleware from '../middlewares/brand/brand-input-val
 /* ===================================================
 -----------------------CONTROLLERS--------------------
 =====================================================*/
-import createBrandController from '../controllers/brand/createBrand.controller.js';
+import createBrandController from '../controllers/brand/create-brand.controller.js';
 import isBrandExistMiddleware from '../middlewares/brand/is-brand-exist.middleware.js';
+import getBrandsController from '../controllers/brand/get-brands.controller.js';
+import getBrandByIdMiddleware from '../middlewares/brand/get-brand-by-id.middleware.js';
+import getBrandByIdController from '../controllers/brand/get-brand-by-id.controller.js';
 
 router
   .route('/brand')
@@ -18,6 +21,8 @@ router
     brandInputValidationMiddleware,
     isBrandExistMiddleware,
     createBrandController
-  );
+  )
+  .get(getBrandsController);
 
+router.route(`/brand/:id`).get(getBrandByIdMiddleware, getBrandByIdController);
 export default router;
