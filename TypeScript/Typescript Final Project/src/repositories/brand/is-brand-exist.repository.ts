@@ -6,9 +6,7 @@ const isBrandExistRepository = async (
 ): Promise<boolean> => {
   try {
     const isExist = await Brand.findOne(query);
-    console.log(isExist);
     if (isExist) return true;
-    console.log('false');
     return false;
   } catch (error) {
     if (error instanceof Error) throw new Error(error.message);
