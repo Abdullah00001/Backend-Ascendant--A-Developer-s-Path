@@ -1,8 +1,11 @@
-import { BaseApiResponseInterface } from './base-api-response.interface.js';
-
-interface FieldValidationErrorInterface<T> extends BaseApiResponseInterface {
+interface FieldErrorInterface<T> {
   field: string;
   type: T;
+  hints: string;
 }
 
-export default FieldValidationErrorInterface;
+interface FieldValidationErrorInterface<T> {
+  fieldsErrors: FieldErrorInterface<T>[];
+}
+
+export { FieldValidationErrorInterface, FieldErrorInterface };
