@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import BrandInterface from '../interfaces/brand.interface.js';
+import BrandInterface from '../interfaces/brand/model-interfcaes/brand.interface.js';
 
 const brandValidationSchema = Joi.object<BrandInterface>({
   brandName: Joi.string().empty('').min(2).required().messages({

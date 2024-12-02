@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import ServerErrorUtility from '../utils/api-response/server-error.utils.js';
 
 const ServerErrorMiddleware = <T>(
   err: T,
@@ -6,10 +7,7 @@ const ServerErrorMiddleware = <T>(
   res: Response,
   next: NextFunction
 ): void => {
-  if (res.headersSent) {
-    return next(err);
-  }
-  res.status
+  new ServerErrorUtility(err).serverError(res);
   return;
 };
 

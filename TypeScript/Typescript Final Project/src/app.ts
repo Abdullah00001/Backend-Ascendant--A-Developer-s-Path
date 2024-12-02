@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from 'express';
-// import ServerErrorMiddleware from './middlewares/server-error.middleware.js';
+import ServerErrorMiddleware from './middlewares/server-error.middleware.js';
 import { baseURL } from './constants.js';
 
 const app: Express = express();
@@ -22,6 +22,6 @@ app.use(baseURL, BrandRoutes);
 -------------- ERROR HANDLER ------------
 ========================================*/
 
-/* app.use(ServerErrorMiddleware); */
+app.use(ServerErrorMiddleware);
 
 export { app };

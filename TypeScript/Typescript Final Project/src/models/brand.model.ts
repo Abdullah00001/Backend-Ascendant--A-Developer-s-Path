@@ -1,5 +1,5 @@
 import { model, Model, Schema } from 'mongoose';
-import BrandInterface from '../interfaces/brand.interface.js';
+import BrandInterface from '../interfaces/brand/model-interfcaes/brand.interface.js';
 
 const BrandSchema = new Schema<BrandInterface>(
   {

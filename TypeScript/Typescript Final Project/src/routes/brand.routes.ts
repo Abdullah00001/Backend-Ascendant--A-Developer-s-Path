@@ -10,9 +10,14 @@ import brandInputValidationMiddleware from '../middlewares/brand/brand-input-val
 -----------------------CONTROLLERS--------------------
 =====================================================*/
 import createBrandController from '../controllers/brand/createBrand.controller.js';
+import isBrandExistMiddleware from '../middlewares/brand/is-brand-exist.middleware.js';
 
 router
   .route('/brand')
-  .post(brandInputValidationMiddleware, createBrandController);
+  .post(
+    brandInputValidationMiddleware,
+    isBrandExistMiddleware,
+    createBrandController
+  );
 
 export default router;
