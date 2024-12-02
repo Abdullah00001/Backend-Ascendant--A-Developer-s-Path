@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import {
   BaseApiResponseInterface,
   ResponseStatus,
@@ -13,7 +13,7 @@ class ServerErrorUtility<T> {
       return 'An unexpected error occurred.';
     }
   }
-  serverError(req: Request, res: Response): void {
+  serverError(res: Response): void {
     const response: BaseApiResponseInterface = {
       status: ResponseStatus.error,
       message: this.getErrorMessage(),

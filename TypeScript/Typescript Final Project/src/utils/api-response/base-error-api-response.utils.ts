@@ -19,7 +19,6 @@ class ErrorApiResponse
   sendErrorResponse(res: Response): void {
     res.status(this.code).json({
       status: this.status,
-      code: this.code,
       message: this.message,
       details: this.errorDetails,
       suggestion: this.hints,
