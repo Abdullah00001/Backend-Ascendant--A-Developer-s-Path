@@ -11,16 +11,17 @@ const getBrandByIdMiddleware = async (
   try {
     const id = req.params.id;
     const brand = await findBrandByIdRepositories(id);
-    if (brand) {
-      req.brand = brand;
-      next();
+    if (!brand) {
+      new ErrorApiResponse(
+        404,
+        'Resource Not Found',
+        `Brand With This Id : ${id} Not found!`,
+        'Please Provide A Valid Brand Id'
+      ).sendErrorResponse(res);
+      return;
     }
-    new ErrorApiResponse(
-      404,
-      'Resource Not Found',
-      `Brand With This Id : ${id} Not found!`,
-      'Please Provide A Valid Brand Id'
-    ).sendErrorResponse(res);
+    req.brand = brand;
+    next();
   } catch (error) {
     next(error);
   }
