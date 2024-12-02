@@ -13,7 +13,6 @@ class SuccessApiResponse<T> extends BaseApiResponse {
   sendSuccessResponse(res: Response): void {
     res.status(this.code).json({
       status: this.status,
-      code: this.code,
       message: this.message,
       data: this.data,
     });
