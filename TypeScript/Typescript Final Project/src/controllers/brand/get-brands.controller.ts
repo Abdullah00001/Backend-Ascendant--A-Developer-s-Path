@@ -9,11 +9,18 @@ const getBrandsController = async (
 ): Promise<void> => {
   try {
     const data = await getBrandsService();
+    if (data.length === 0) {
+      new SuccessApiResponse(200, 'No Brands Found', data).sendSuccessResponse(
+        res
+      );
+      return;
+    }
     new SuccessApiResponse(
       200,
       'Brands Retrieve Successful',
       data
     ).sendSuccessResponse(res);
+    return;
   } catch (error) {
     console.log(error);
     next(error);

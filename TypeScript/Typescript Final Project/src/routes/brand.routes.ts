@@ -15,6 +15,7 @@ import getBrandsController from '../controllers/brand/get-brands.controller.js';
 import getBrandByIdMiddleware from '../middlewares/brand/get-brand-by-id.middleware.js';
 import getBrandByIdController from '../controllers/brand/get-brand-by-id.controller.js';
 import updateBrandController from '../controllers/brand/update-brand.controller.js';
+import deleteBrandController from '../controllers/brand/delete-brand.controller.js';
 
 router
   .route('/brand')
@@ -33,5 +34,5 @@ router
     brandInputValidationMiddleware,
     updateBrandController
   )
-  .delete();
+  .delete(getBrandByIdMiddleware, deleteBrandController);
 export default router;
