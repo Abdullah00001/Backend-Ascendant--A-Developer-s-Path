@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
 import ServerErrorMiddleware from './middlewares/server-error.middleware.js';
 import { baseURL } from './constants.js';
 
@@ -15,8 +15,10 @@ app.use(express.json());
 ========================================*/
 
 import BrandRoutes from './routes/brand.routes.js';
+import CategoryRoutes from './routes/category.routes.js';
 
 app.use(baseURL, BrandRoutes);
+app.use(baseURL, CategoryRoutes);
 
 /* ======================================
 -------------- ERROR HANDLER ------------
