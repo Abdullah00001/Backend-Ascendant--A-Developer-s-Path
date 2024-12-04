@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import CategoryInterface from '../interfaces/category.interface.js';
+import CategoryInterface from '../interfaces/category/category.interface.js';
 
 const categoryValidationSchema = Joi.object<CategoryInterface>({
   categoryName: Joi.string().empty('').min(3).required().messages({
