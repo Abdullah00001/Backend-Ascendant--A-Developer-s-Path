@@ -1,7 +1,7 @@
 import { Response } from 'express';
-import { ResponseStatus } from '../../interfaces/base-api-response.interface.js';
+import { ResponseStatus } from '../../interfaces/error/base-api-response.interface.js';
 import BaseApiResponse from './base-api-response.utils.js';
-import BaseErrorApiInterface from '../../interfaces/base-error-api-response.interface.js';
+import BaseErrorApiInterface from '../../interfaces/error/base-error-api-response.interface.js';
 
 class ErrorApiResponse
   extends BaseApiResponse

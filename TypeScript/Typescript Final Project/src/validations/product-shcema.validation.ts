@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import ProductInterface from '../interfaces/product.interface.js';
+import ProductInterface from '../interfaces/product/product.interface.js';
 
 const productValidationSchema = Joi.object<ProductInterface>({
   productName: Joi.string().empty('').min(3).required().messages({

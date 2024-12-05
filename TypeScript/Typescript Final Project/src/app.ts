@@ -16,9 +16,11 @@ app.use(express.json());
 
 import BrandRoutes from './routes/brand.routes.js';
 import CategoryRoutes from './routes/category.routes.js';
+import ProductRoutes from './routes/product.routes.js';
 
 app.use(baseURL, BrandRoutes);
 app.use(baseURL, CategoryRoutes);
+app.use(baseURL, ProductRoutes);
 
 /* ======================================
 -------------- ERROR HANDLER ------------

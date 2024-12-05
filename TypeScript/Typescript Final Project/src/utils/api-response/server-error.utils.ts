@@ -2,7 +2,7 @@ import { Response } from 'express';
 import {
   BaseApiResponseInterface,
   ResponseStatus,
-} from '../../interfaces/base-api-response.interface.js';
+} from '../../interfaces/error/base-api-response.interface.js';
 
 class ServerErrorUtility<T> {
   constructor(public err: T) {}
