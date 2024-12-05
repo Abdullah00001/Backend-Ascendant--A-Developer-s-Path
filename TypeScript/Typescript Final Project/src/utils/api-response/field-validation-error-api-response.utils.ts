@@ -1,9 +1,9 @@
 import { Response } from 'express';
-import { ResponseStatus } from '../../interfaces/base-api-response.interface.js';
+import { ResponseStatus } from '../../interfaces/error/base-api-response.interface.js';
 import {
   FieldValidationErrorInterface,
   FieldErrorInterface,
-} from '../../interfaces/validation-error-api-response.interface.js';
+} from '../../interfaces/validation/validation-error-api-response.interface.js';
 import BaseApiResponse from './base-api-response.utils.js';
 import Joi from 'joi';
 
