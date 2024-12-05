@@ -10,7 +10,7 @@ const createCategoryService = async (
     return createdCategory;
   } catch (error) {
     if (error instanceof Error) throw new Error(error.message);
-    throw new Error('Unknown Error Occurred');
+    throw new Error('An unknown error occurred in isBrandExistRepository.');
   }
 };
 

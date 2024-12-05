@@ -3,7 +3,7 @@ import Brand from '../../models/brand.model.js';
 
 const getBrandsRepository = async (): Promise<Document[]> => {
   try {
-    const data = await Brand.find();
+    const data = await Brand.find({});
     return data;
   } catch (error) {
     if (error instanceof Error) throw new Error(error.message);
