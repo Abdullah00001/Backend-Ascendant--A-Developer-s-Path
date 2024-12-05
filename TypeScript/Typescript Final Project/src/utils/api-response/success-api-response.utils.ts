@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { ResponseStatus } from '../../interfaces/base-api-response.interface.js';
+import { ResponseStatus } from '../../interfaces/error/base-api-response.interface.js';
 import BaseApiResponse from './base-api-response.utils.js';
 
 class SuccessApiResponse<T> extends BaseApiResponse {
