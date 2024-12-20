@@ -1,0 +1,28 @@
+services:
+  server:
+    build: ./server
+    container_name: server_container
+    ports:
+      - 5000:5000
+    networks:
+      - server_network
+    volumes:
+      - '/home/abdullah/Developments/Backend-Ascendant--A-Developer-s-Path/Docker/Day 7/project1/server:/usr/src/app'
+
+    depends_on:
+      - database
+  database:
+    image: mongo:8.0
+    container_name: database_container
+    ports:
+      - 27018:27017
+    networks:
+      - server_network
+    volumes:
+      - server_volume:/data/db
+
+networks:
+  server_network:
+    driver: bridge
+volumes:
+  server_volume:
