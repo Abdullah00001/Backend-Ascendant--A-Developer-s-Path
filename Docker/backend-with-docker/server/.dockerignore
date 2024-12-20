@@ -1,0 +1,41 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# Build output (TypeScript or other build artifacts)
+dist/
+build/
+
+# Source maps (optional for development but often large and unnecessary)
+*.map
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Docker files (no need to include these in the image)
+.dockerignore
+Dockerfile
+Dockerfile.*
+
+# Git files (no need to copy .git into the container)
+.git/
+.gitignore
+
+# Temporary files
+tmp/
+temp/
+
+
+# Coverage reports (if you're running tests, you might want to exclude this)
+coverage/
+
+# Testing artifacts (if any generated test or debug artifacts should be excluded)
+*.test.js
+*.spec.js
