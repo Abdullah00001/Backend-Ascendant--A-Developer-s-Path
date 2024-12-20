@@ -1,0 +1,45 @@
+# Node.js dependencies
+node_modules/
+
+# Build output directories
+dist/
+build/
+
+# Logs and temporary files
+logs/
+*.log
+*.tmp
+tmp/
+
+# Coverage reports
+coverage/
+
+# Environment variables files
+.env
+.env.*
+
+# Docker files (no need to format Docker-specific files)
+.dockerignore
+Dockerfile
+Dockerfile.*
+
+# Git files (no need to format Git-related files)
+.git/
+.gitignore
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Test files and testing artifacts (optional, based on your needs)
+*.test.js
+*.spec.js
+coverage/
+
+# Markdown files with documentation (optional, based on your needs)
+README.md
+
+# Miscellaneous
+*.min.js
+*.map
