@@ -1,0 +1,43 @@
+services:
+
+  client:
+    build: ./client
+    container_name: client_container
+    ports:
+      - 5173:5173
+    networks:
+      - client_networks
+    volumes:
+      - '/home/abdullah/Desktop/Backend-Ascendant--A-Developer-s-Path/Mongodb/Day 2 | Tech Zone Backend/client:/usr/src/app'
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    container_name: server_container
+    ports:
+      - 5000:5000
+    networks:
+      - client_networks
+      - server_network
+    volumes:
+      - '/home/abdullah/Desktop/Backend-Ascendant--A-Developer-s-Path/Mongodb/Day 2 | Tech Zone Backend/server:/usr/src/app'
+    depends_on: 
+      - database
+  database:
+    image: mongo:8.0
+    container_name: database_container
+    ports:
+      - 27017:27017
+    networks:
+      - server_network
+    volumes:
+      - server_volume:/data/db
+
+networks:
+  client_networks:
+    driver: bridge
+  server_network:
+    driver: bridge
+volumes:
+  server_volume:
