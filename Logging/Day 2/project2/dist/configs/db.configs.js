@@ -7,20 +7,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import dotenv from "dotenv";
-import { app } from "./app.js";
-import connectDatabase from "./configs/db.configs.js";
-dotenv.config();
-const PORT = process.env.PORT || 5000;
-(() => __awaiter(void 0, void 0, void 0, function* () {
+import mongoose from "mongoose";
+import { databaseUri } from "../utils/db.utils.js";
+import logger from "./logger.configs.js";
+const connectDatabase = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield connectDatabase();
-        app.listen(PORT, () => {
-            console.log(`Server Started\nServer Running on Port ${PORT}`);
-        });
+        yield mongoose.connect(databaseUri());
+        console.log(`Database Connected`);
     }
     catch (error) {
         const err = error;
-        console.log(err.message);
+        logger.error(err.message);
+        process.exit(1);
     }
-}))();
+});
+export default connectDatabase;

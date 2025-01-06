@@ -1,0 +1,15 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 200, Res: 11, Response Time: 1.953 ms","timestamp":"2025-01-06 16:35:42"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /favicon.ico, Status: 404, Res: 150, Response Time: 0.955 ms","timestamp":"2025-01-06 16:35:42"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.303 ms","timestamp":"2025-01-06 16:36:24"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.228 ms","timestamp":"2025-01-06 16:36:24"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.198 ms","timestamp":"2025-01-06 16:36:24"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.239 ms","timestamp":"2025-01-06 16:36:24"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.251 ms","timestamp":"2025-01-06 16:36:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.198 ms","timestamp":"2025-01-06 16:36:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.193 ms","timestamp":"2025-01-06 16:36:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.312 ms","timestamp":"2025-01-06 16:36:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.241 ms","timestamp":"2025-01-06 16:36:25"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.178 ms","timestamp":"2025-01-06 16:36:26"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Method: GET, URL: /, Status: 304, Res: 0, Response Time: 0.186 ms","timestamp":"2025-01-06 16:36:26"}
+{"level":"\u001b[31merror\u001b[39m","message":"Development Database Connection uri Missing In Environment VAriable","timestamp":"2025-01-06 16:43:41"}
+{"level":"\u001b[31merror\u001b[39m","message":"Development Database Connection uri Missing In Environment VAriable","timestamp":"2025-01-06 16:43:57"}
