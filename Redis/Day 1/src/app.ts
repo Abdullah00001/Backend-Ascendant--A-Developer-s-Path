@@ -7,14 +7,17 @@ const app: Application = express();
 
 app.use(express.json());
 
-app.get("/", async (req: Request, res: Response) => {
-  const cachedtodos = await redisClient.get("todos");
-  if (cachedtodos) {
-    return res.json({ data: cachedtodos });
+app.get("/", async (req: Request, res: Response): Promise<void> => {
+  const cachedTodos = await redisClient.get("todos");
+  if (cachedTodos) {
+    res.status(200).json({ data: JSON.parse(cachedTodos) });
+    return;
+  } else {
+    const todos = await Todo.find({});
+    await redisClient.set("todos", JSON.stringify(todos));
+    res.status(200).json({ data: todos });
+    return;
   }
-  const data = await Todo.find({});
-  await redisClient.set("todos",data);
-  return res.json({ data: data });
 });
 
 export default app;
