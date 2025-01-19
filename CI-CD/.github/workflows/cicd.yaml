@@ -1,0 +1,23 @@
+# name: exploring cicd pipeline and github actions
+
+# on:
+#   - push
+
+# jobs:
+#   job1:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: check source code
+#         uses: actions/checkout@v4
+  
+#   job2:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: print hello
+#         run: echo hello world
+  
+#   job3:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: print my name
+#         run: echo Abdullah
