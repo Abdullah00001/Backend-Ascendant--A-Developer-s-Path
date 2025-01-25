@@ -1,0 +1,36 @@
+openapi: 3.0.0
+
+info:
+  title: exploreing
+  version: 1.0.0
+  description: its a demo
+
+servers:
+  - url: http://localhost:5000/api/v1
+
+paths:
+  /auth/signup:
+    post:
+      description: its
+      tags:
+        - User
+      requestBody:
+        description: its user signup route
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+      responses:
+        "201":
+          description: its user signup route
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
