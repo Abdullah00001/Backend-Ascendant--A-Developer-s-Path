@@ -1,0 +1,122 @@
+openapi: 3.0.1
+
+info:
+  title: Exploring OpenApi
+  description: I am exploring open api.And try to learn OpenApi for Api Design.Level up my Backend Development skills.
+  version: 1.0.0
+  contact:
+    name: Abdullah Bin Omar Chowdhury
+    email: abdullahbinomarchowdhury@gmail.com
+    url: https://github.com/Abdullah00001
+  license:
+    name: Apace license 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://github.com/Abdullah00001
+
+servers:
+  - url: https://example.vercel.app/api/v1
+    description: Production Server
+  - url: http://localhost:5000/api/v1
+    description: Development
+
+paths:
+  /auth/signup:
+    post:
+      tags:
+        - User
+      description: This Route IS For Handle User Registration
+      requestBody:
+        required: true
+        description: For Registration We Will Take Some User Information
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: Jhon
+                lastName:
+                  type: string
+                  example: Doe
+                email:
+                  type: string
+                  example: jhondoe@example.com
+                password:
+                  type: string
+                  example: userpassword
+      responses:
+        "201":
+          description: 201 status is for signup successfull
+          content:
+            aplication/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User Signup Successfull.Please Check Your Email,We Sent You A Verification Email For Verified Your Account.
+        "409":
+          description: 409 status is indicate that with email user try to signup,is already exist in system
+          content:
+            aplication/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User Already Exist
+                  hints:
+                    type: string
+                    example: With The Email You Try To Signup Is Already Exist.Please Try A Different Email.
+        "500":
+          description: 500 status is indicate that server failuier occuered.
+          content:
+            aplication/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+                  hints:
+                    type: string
+                    example: Server Maybe Down Or Its In Maintainence.Please Try Again Latter.Or Please Contact With Us.
+  /auth/login:
+    post:
+      tags:
+        - User
+      description: This Route Is For Handle User Login
+      requestBody:
+        required: true
+        description: For Login We Need Some User Credential Like User Email and password.
+        content:
+          aplication/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  example: jhondoe@example.com
+                password:
+                  type: string
+                  example: userpassword
+      responses:
+        "200":
+          description: 200 status indicate that User Login Successfull.
+          content:
+            aplication/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Login Successfull.
+          headers:
+            Set-Cookie:
+              description: Sets access and refresh tokens in cookies.
+              schema:
+                type: array
+                items:
+                  type: string
+                example:
+                  - accessToken=abc123; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=900
+                  - refreshToken=xyz789; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=604800
