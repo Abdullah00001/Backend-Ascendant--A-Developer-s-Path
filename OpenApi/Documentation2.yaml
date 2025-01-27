@@ -1,0 +1,154 @@
+openapi: 3.0.0
+
+info:
+  title: Learn Parameter And Crud
+  version: 1.0.0
+  description: This Documentation Is For A Shoe App
+
+servers:
+  - url: http://localhost:5000/api/v1
+    description: Development Server
+  - url: https://shoes-le-lo.vercel.app/api/v1
+    description: Production Server
+
+paths:
+  /shoe:
+    post:
+      description: This Route Is For Post New Shoe
+      tags:
+        - Shoe
+      requestBody:
+        required: true
+        description: In The Request Body We Will Take Shoe Information For New Shoe Product
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "#/components/schemas/Shoe"
+      responses:
+        "201":
+          description: This Status IS For Successful New Shoe Creation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: New Data Added
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                        - $ref: "#/components/schemas/Document"
+                        - $ref: "#/components/schemas/Shoe"
+    get:
+      description: This Route Is For Retrieved All Shoes
+      tags:
+        - Shoe
+      responses:
+        "200":
+          description: 200 status is showed when all shoes retrieve succesfull
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Retrieve Successfull
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                        - $ref: "#/components/schemas/Document"
+                        - $ref: "#/components/schemas/Shoe"
+        "500":
+          description: 500 status will be showed when server error occured
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Internal Server Error
+                  data:
+                    type: string
+                    example: null
+                  errors:
+                    type: array
+                    example:
+                      - Due To Maintainace Server Is Not Responding.
+                  hints:
+                    type: array
+                    example:
+                      - After 10 am if its still occured please contact us.
+                  info:
+                    type: object
+                    $ref: "#/components/schemas/Info"
+
+components:
+  schemas:
+    Shoe:
+      properties:
+        shoeTitle:
+          type: string
+          example: Example Shoe
+        shoePrice:
+          type: number
+          example: 40
+        shoeCategory:
+          type: string
+          example: Sandle
+        shoeBrand:
+          type: string
+          example: Example Brand
+        newArival:
+          type: boolean
+          example: true
+        shoeSize:
+          type: array
+          items:
+            type: string
+          example:
+            - s
+            - m
+            - l
+            - xl
+        shoeDescription:
+          type: string
+          example: |-
+            Experience unmatched comfort and style with the Vibrant Men's Brown Nubuck Leather Diabetic-Friendly Sandal. Designed with premium Nubuck leather, this sandal offers a soft and durable upper that ensures lasting wear. The phylon outsole provides lightweight flexibility, while the cushioned insole offers superior support, making it perfect for diabetic patients seeking comfort and pressure relief. Ideal for casual outings or daily use, this sandal combines health benefits with a stylish design to meet your everyday needs.
+        shoeImages:
+          type: array
+          items:
+            type: string
+          example:
+            - https://example.com/image1.jpg
+            - https://fakeimagesource.com/pic123.png
+            - https://samplelink.org/photos/image2.jpeg
+    Document:
+      properties:
+        _id:
+          type: string
+          example: 67164cbbdbc6daf7db3bd9cd
+        createdAt:
+          type: string
+          example: 2024-10-21T12:44:53.087+00:00
+        updatedAt:
+          type: string
+          example: 2024-10-21T12:44:53.087+00:00
+    Info:
+      properties:
+        version:
+          type: string
+          example: 1.0.0
+        environment:
+          type: string
+          example: Production
