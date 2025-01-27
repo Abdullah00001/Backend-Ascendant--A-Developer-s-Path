@@ -47,6 +47,39 @@ paths:
       description: This Route Is For Retrieved All Shoes
       tags:
         - Shoe
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+            example: sandal
+        - name: price
+          in: query
+          schema:
+            type: string
+            enum:
+              - min
+              - max
+        - name: brand
+          in: query
+          schema:
+            type: string
+            example: nike
+        - name: size
+          in: query
+          schema:
+            type: string
+            example: x
+        - name: page
+          in: query
+          schema:
+            type: number
+            example: 1
+        - name: limit
+          in: query
+          schema:
+            type: number
+            example: 10
       responses:
         "200":
           description: 200 status is showed when all shoes retrieve succesfull
