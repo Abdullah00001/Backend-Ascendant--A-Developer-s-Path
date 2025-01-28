@@ -1,0 +1,106 @@
+openapi: 3.0.0
+
+info:
+  title: ElevanceNet - The Professional Social Networking Platform
+  description: |-
+    ElevanceNet is a modern social networking platform designed for 
+    professionals to share their careers, experiences, and insights. 
+    It addresses the growing need to focus on meaningful and constructive 
+    content, eliminating distractions caused by unproductive or irrelevant posts. 
+    By fostering a community centered around professional growth and 
+    collaboration, ElevanceNet aims to empower users in their personal and professional journeys.
+  version: 1.0.0
+  contact:
+    name: Abdullah Bin Omar Chowdhury
+    email: abdullahbinomarchowdhury@gmail.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+  termsOfService: https://elevancenet.netlify.app/terms
+
+servers:
+  - url: http://localhost:5000/api/v1
+    description: Development Server
+  - url: https://elevancenet.vercel.app/api/v1
+    description: Production Server
+
+tags:
+  - name: Authentication
+  - name: User Preference
+  - name: Education
+  - name: Works At
+  - name: Location
+  - name: Social Media
+  - name: Post
+  - name: Like
+  - name: Comment
+  - name: Topics
+  - name: Reports
+  - name: Feedback
+
+paths:
+  /auth/signup:
+    post:
+      description: This Route Is For Signup New User In System
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        description: |-
+          For Sign Up We Will Take User Input In Request Body
+        content:
+          application/json:
+            schema:
+              $ref: "#components/schemas/User"
+      responses:
+        "201":
+          description: 201 status is for successful signup
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: user creation successful
+                  data:
+                    type: string
+                    example: null
+                  errors:
+                    type: string
+                    example: null
+                  meta:
+                    
+
+components:
+  schemas:
+    Document:
+      properties:
+        _id:
+          type: string
+          example: 67164cbbdbc6daf7db3bd9cd
+        _v:
+          type: number
+          example: 0
+        createdAt:
+          type: string
+          example: 2024-10-21T12:44:53.087+00:00
+        updatedAt:
+          type: string
+          example: 2024-10-21T12:44:53.087+00:00
+    User:
+      properties:
+        firstName:
+          type: string
+          example: jhon
+        lastName:
+          type: string
+          example: Doe
+        email:
+          type: string
+          example: jsondoe123@gmail.com
+        password:
+          type: string
+          example: user password
