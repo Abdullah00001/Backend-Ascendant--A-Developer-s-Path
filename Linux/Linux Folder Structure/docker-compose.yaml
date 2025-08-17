@@ -1,0 +1,13 @@
+services:
+  linux:
+    image: ubuntu:latest
+    container_name: ubuntu
+    hostname: ubuntu
+    ports:
+      - 2222:22
+      - 8080:80
+    environment:
+      TZ: "Asia/Dhaka"
+      LANG: "en_US.UTF-8"
+      LC_ALL: "en_US.UTF-8"
+    command: tail -f /dev/null
