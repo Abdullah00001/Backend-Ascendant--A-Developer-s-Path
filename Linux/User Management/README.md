@@ -11,7 +11,7 @@ key files that involve in user management:
 - `/etc/group` - Store group information
 - `/etc/gshadow` - Store secure group information
 
-### Creating user in linux
+### Creating User In Linux
 
 We can create user two way.
 
@@ -20,7 +20,7 @@ We can create user two way.
   Its a basic command who didn't take any argument to create an user.Its create user without creating password and home directory.
 
   ```
-  useradd jhondoe
+  sudo useradd jhondoe
   ```
 
 - #### adduser (3rd party command)
@@ -28,7 +28,24 @@ We can create user two way.
   Its a interactive command that take various argument as input while creating user.Like password,full name,contacts etc.And Interesting think is its create home directory for the user.
 
   ```
-  useradd jhondoe
+  sudo adduser jhondoe
+  ```
+
+### Creating User Home Directory
+
+If user already created without home directory then we need to follow these command.
+
+- #### Create home directory
+  ```
+  sudo mkdir /home/jhondoe
+  ```
+- #### Copy default config file
+  ```
+  sudo cp -r /etc/skel/. /home/jhondoe
+  ```
+- #### Give ownership to user
+  ```
+  sudo chown -R jhondoe:jhondoe /home/jhondoe
   ```
 
 ### Password Manipulation
@@ -86,6 +103,20 @@ We can create user two way.
   passwd -u jhondoe
   ```
   This command will be unlocked jhon doe's account.
+
+### Modifying User
+
+modifying existing user with `usermod`:
+
+- #### Change username
+  Its will change the name only its didn't change the home directory name
+  ```
+  sudo usermod -l newname oldname
+  ```
+- #### Change user home directory with new username
+  ```
+  sudo usermod -d /home/oldname -m newname
+  ```
 
 ### Deleting user in linux
 
