@@ -131,3 +131,46 @@ modifying existing user with `usermod`:
   ```
   userdel -r jhondoe
   ```
+
+### Working With Groups
+
+- #### Create group
+  ```
+  groupadd groupname
+  ```
+- #### Add user to group
+  ```
+  usermod -aG groupname username
+  ```
+- #### View group members
+  ```
+  groups username
+  ```
+- #### Change primary group
+  ```
+  usermod -g new_primary_group username
+  ```
+
+### Sudo Access And Privilege
+
+- #### Add a user to sudo group in Debian Base system
+  ```
+  usermod -aG sudo username
+  ```
+- #### Add a user to sudo group in RHEL Base system
+  ```
+  usermod -aG wheel username
+  ```
+- #### Granting command with sudo
+
+  Edit the sudoers file:
+
+  ```
+  visudo
+  ```
+
+  Then add:
+
+  ```
+  username ALL=(ALL) NOPASSWD: /path/to/command
+  ```
