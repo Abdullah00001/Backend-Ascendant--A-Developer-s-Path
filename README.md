@@ -80,8 +80,8 @@ The goal is to keep evolving with each challenge, project, and architectural pro
 **Abdullah Bin Omar Chowdhury**  
 _Software Engineer | Backend & System Design Enthusiast_
 
-📧 Reach out: _[Your Email Here]_  
-🌐 Connect: [LinkedIn](#) • [GitHub](#)
+📧 Reach out: abdullahbinomarchowdhury02@gmail.com
+🌐 Connect: [LinkedIn](linkedin.com/in/abdullah00001) • [GitHub](https://github.com/Abdullah00001)
 
 ---
 
