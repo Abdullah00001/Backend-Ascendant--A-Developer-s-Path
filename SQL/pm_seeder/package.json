@@ -1,0 +1,15 @@
+{
+  "name": "pm-seeder",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.0.0",
+    "fast-csv": "^4.3.6",
+    "pg": "^8.10.0",
+    "pg-copy-streams": "^5.0.0",
+    "dotenv": "^16.0.0"
+  }
+}
