@@ -1,0 +1,5 @@
+SELECT *
+FROM team_members
+WHERE team_id=48869
+ORDER BY id DESC
+LIMIT 100;
