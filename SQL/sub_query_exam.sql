@@ -45,3 +45,91 @@ HAVING COUNT(t.id)>(
 ORDER BY created_by ASC
 LIMIT 10;
 
+
+-- Level 2
+
+-- For each user, show their total tasks in a subquery column.
+
+SELECT u.id as user_id,(
+SELECT count(*)
+FROM tasks t
+WHERE t.created_by=u.id
+) AS task_count
+FROM users u
+LIMIT 10;
+
+-- OPTIMIZED
+
+SELECT created_by,COUNT(id)
+FROM tasks
+GROUP BY created_by
+LIMIT 10;
+
+-- For each user, show the total activity logs they generated.
+
+
+SELECT u.id as user_id,(
+SELECT count(*)
+FROM activity_logs a
+WHERE a.user_id=u.id
+) AS activity_count
+FROM users u
+LIMIT 10;
+
+-- OPTIMIZED
+
+SELECT user_id,COUNT(id)
+FROM activity_logs
+GROUP BY user_id
+LIMIT 10;
+
+-- Level 3
+
+-- Show tasks whose project_id exists in the tasks table more than 5 times.
+
+SELECT *
+FROM tasks
+WHERE project_id IN (
+	SELECT DISTINCT project_id
+	FROM tasks
+	GROUP BY project_id
+	HAVING COUNT(project_id)>5
+)
+LIMIT 20;
+
+-- Show users who have never created a task (using NOT IN).
+
+SELECT full_name
+FROM users u
+WHERE u.id NOT IN (
+	SELECT DISTINCT t.created_by
+	FROM tasks t
+	GROUP BY created_by
+)
+LIMIT 10;
+
+-- Level 4
+
+-- Show users who have at least 1 activity log.
+
+SELECT id,full_name
+FROM users u
+WHERE EXISTS (
+	SELECT 1
+	FROM activity_logs al
+	WHERE u.id=al.user_id
+)
+LIMIT 10;
+
+-- Show users who have no activity logs.
+
+SELECT id,full_name
+FROM users u
+WHERE EXISTS (
+	SELECT 0
+	FROM activity_logs al
+	WHERE u.id=al.user_id
+)
+LIMIT 10;
+
+
