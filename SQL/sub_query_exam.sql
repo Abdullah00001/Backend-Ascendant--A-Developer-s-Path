@@ -133,3 +133,84 @@ WHERE EXISTS (
 LIMIT 10;
 
 
+-- Level 5
+
+-- Show tasks that are the most recent task for their project_id.
+
+SELECT *
+FROM tasks
+WHERE project_id IN (
+	SELECT project_id
+	FROM tasks
+	GROUP BY project_id
+	LIMIT 10
+)
+ORDER BY created_at DESC
+LIMIT 10;
+
+-- Show tasks that have the highest priority inside their project.
+
+SELECT *
+FROM tasks
+WHERE (project_id,priority) IN (
+	SELECT project_id,priority
+	FROM tasks
+	GROUP BY project_id,priority
+	HAVING priority='HIGH'
+	LIMIT 10
+)
+LIMIT 10;
+
+-- Level 6
+
+-- Count how many tasks each user created → then show only those with more than 3 tasks.
+
+SELECT *
+FROM (
+	SELECT created_by,COUNT(id) AS task_count
+	FROM tasks
+	GROUP BY created_by
+) AS tasks
+WHERE task_count>3
+LIMIT 10;
+
+-- Compute tasks per day → then filter days where tasks > 5.
+
+SELECT *
+FROM (
+	SELECT created_at,COUNT(id) AS task_count
+	FROM tasks
+	GROUP BY created_at
+) AS taks
+WHERE task_count>5
+LIMIT 10;
+
+-- Level 7
+
+-- Use a CTE to list the top 3 users with highest task count.
+
+WITH computed_users AS (
+	SELECT created_by
+	FROM tasks
+	GROUP BY created_by
+	ORDER BY COUNT(id) DESC
+	LIMIT 3
+)
+SELECT *
+FROM users
+WHERE id IN (
+	SELECT created_by
+	FROM computed_users
+);
+
+-- Use a CTE to get daily activity log counts → then return only days with > 10 logs.(i use 3 in solution cause 10 counts didn't have in database maximum 4 count have)
+
+WITH daily_log_counts AS (
+	SELECT created_at, COUNT(id) AS activity_count
+	FROM activity_logs
+	GROUP BY created_at
+	HAVING COUNT(id)>=3
+)
+
+SELECT *
+FROM daily_log_counts;
